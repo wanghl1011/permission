@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>登录</title>
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/whll.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class=""><h2 class="text-center">请登录</h2></div>
+    </div>
+    <form class="form-horizontal" method="post" action="/qx/login/">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="username" class="col-sm-3 control-label">用户名</label>
+            <div class="col-sm-6">
+                <input type="text" name="username" class="form-control" id="username" placeholder="用户名">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-sm-3 control-label">密码</label>
+            <div class="col-sm-6">
+                <input type="password" name="password" class="form-control" id="password" placeholder="密码">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-7">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> 记住我
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" style="color: red">
+            <label class="col-sm-3 control-label"></label>
+            <div class="col-sm-6 error">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-3">
+                <input role="button" type="submit" class="btn btn-primary btn-block" id="popup-submit" >
+            </div>
+            <div id="popup-captcha"></div>
+        </div>
+    </form>
+</div>
+<script src="/static/js/jquery-3.2.1.min.js"></script>
+<!-- 为使用方便，直接使用jquery.js库，如您代码中不需要，可以去掉 -->
+<script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
+<!-- 引入封装了failback的接口--initGeetest -->
+<script src="http://static.geetest.com/static/tools/gt.js"></script>
+<script src="/static/js/jquery.cookie.js"></script>
+</body>
+</html>

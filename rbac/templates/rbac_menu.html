@@ -1,0 +1,23 @@
+{% for value in menu_result.values %}
+    <div class="menu-title" style="font-size: 20px"><a style="color: black" role="button">{{ value.title }}</a></div>
+    {% if value.active %}
+        <div class="menu-body">
+            {% for item in value.children %}
+                {% if item.active %}
+                    <div style="margin-left: 20px;"><a style="color: red" href="{{ item.url }}">{{ item.title }}</a>
+                    </div>
+                {% else %}
+                    <div style="margin-left: 20px"><a href="{{ item.url }}">{{ item.title }}</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="menu-body hide">
+            {% for item in value.children %}
+                <div style="margin-left: 20px"><a class="active" href="{{ item.url }}">{{ item.title }}</a>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endfor %}

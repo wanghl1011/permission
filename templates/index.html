@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Title</title>
+</head>
+<body>
+            <h3>您对应的角色是：
+                {% for item in role_title %}
+                    <span>{{ item.title }}</span>
+                {% endfor %}
+            </h3>
+            <h3>您的权限对应的名称是：</h3>
+            {% for title in title_list %}
+                <span>{{ title }}</span>
+            {% endfor %}
+
+            <h3>您的权限对应的URL地址是：</h3>
+            {% for power in power_list %}
+                <div>{{ power.power_url }}</div>
+            {% endfor %}
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.min.css">
+    <style>
+        .head {
+            height: 50px;
+            background-color: #8a6d3b;
+            line-height: 50px;
+            text-align: center;
+        }
+
+        .left {
+            background-color: #e6e6e6;
+        }
+
+        .right {
+            background-color: #eeeeee;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="head container-fulid">表头</div>
+<div class="container-fulid">
+    <div class="row">
+        <div class="left col-md-3">
+            {% block page-menu %}
+            {% endblock %}
+
+
+            {#            <div class="panel-group" style="margin-top: 10px" id="accordion" role="tablist" aria-multiselectable="true">#}
+            {#                {% for key,value in menu_dict.items %}#}
+            {#                    <div class="panel panel-default">#}
+            {#                        <div class="panel-heading" role="tab" id="{{ value.title }}">#}
+            {#                            <h4 class="panel-title">#}
+            {#                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"#}
+            {#                                   href="#{{ key }}" aria-expanded="false" aria-controls="{{ key }}">#}
+            {#                                    {{ value.title }}#}
+            {#                                </a>#}
+            {#                            </h4>#}
+            {#                        </div>#}
+            {#                        {% if value.active %}#}
+            {#                            <div id="{{ key }}" class="panel-collapse collapse in" role="tabpanel"#}
+            {#                                 aria-labelledby="{{ value.title }}">#}
+            {#                                <div class="panel-body">#}
+            {#                                    {% for item in value.children %}#}
+            {#                                    {% if item.active %}#}
+            {#                                      <div style="margin-left: 20px;"><a style="color: red" href="{{ item.url }}">{{ item.title }}</a>#}
+            {#                                      </div>#}
+            {#                                    {% else %}#}
+            {#                                      <div style="margin-left: 20px"><a href="{{ item.url }}">{{ item.title }}</a>#}
+            {#                                      </div>#}
+            {#                                     {% endif %}#}
+            {#                                    {% endfor %}#}
+            {#                                </div>#}
+            {#                            </div>#}
+            {#                        {% else %}#}
+            {#                            <div id="{{ key }}" class="panel-collapse collapse" role="tabpanel"#}
+            {#                                 aria-labelledby="{{ value.title }}">#}
+            {#                                <div class="panel-body">#}
+            {#                                    {% for item in value.children %}#}
+            {#                                        <div style="margin-left: 20px"><a class="active"#}
+            {#                                                                          href="{{ item.url }}">{{ item.title }}</a>#}
+            {#                                        </div>#}
+            {#                                    {% endfor %}#}
+            {#                                </div>#}
+            {#                            </div>#}
+            {#                        {% endif %}#}
+            {#                    </div>#}
+            {#                {% endfor %}#}
+            {#            </div>#}
+
+        </div>
+        <div class="right col-md-9">
+            {% block page-menu-info %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+
+
+<script src="/static/js/jquery-3.2.1.min.js"></script>
+<script src="/static/js/menu.js"></script>
+<script src="/static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="/static/js/jquery.cookie.js"></script>
+</body>
+</html>

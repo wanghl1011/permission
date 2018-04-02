@@ -1,0 +1,38 @@
+{% extends "menu.html" %}
+{% load rbac %}
+{% block page-menu %}
+    {% menu request %}
+{% endblock %}
+{% block page-menu-info %}
+    <h3>用户列表</h3>
+    {% if per.add %}
+        <div><button class="btn btn-success">添加</button></div>
+    {% endif %}
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <td>序号</td>
+                <td>用户名</td>
+                <td>操作</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in user_list %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>
+                        {% if per.edit %}
+                            <a href="" role="button" class="btn btn-primary">编辑</a>
+                        {% endif %}
+                        {% if per.delete %}
+                            <a href="" role="button" class="btn btn-danger">删除</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+

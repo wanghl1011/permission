@@ -1,0 +1,8 @@
+{% extends "menu.html" %}
+{% load rbac %}
+{% block page-menu %}
+    {% menu request %}
+{% endblock %}
+{% block page-menu-info %}
+    <h3>订单列表</h3>
+{% endblock %}
